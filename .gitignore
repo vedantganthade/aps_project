@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 node_modules
 .next
 .env
 .env.local
 npm-debug.log
 .DS_Store
+=======
+
+model_training_data_augmented.csv
+a3tgcn_best.pt
+>>>>>>> ad8a9482ce9b0303ee95250d1e7c8af81e00e4f3
