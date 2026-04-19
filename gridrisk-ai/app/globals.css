@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font stack ─── */
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #030510;
+  color: #e2e8f0;
+  font-feature-settings: "cv03", "cv04", "cv11";
+}
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* ─── Animations used by map components ─── */
+
+/* Outer halo around at-risk bus nodes */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* Flowing dashes along feeder edges */
+@keyframes flow-dashes {
+  0%   { stroke-dashoffset: 0;   }
+  100% { stroke-dashoffset: -28; }
+}
+
+/* Selection ring rotation */
+@keyframes rotate-dash {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Softer ping for critical alert dots */
+@keyframes ping-subtle {
+  0%   { transform: scale(1);   opacity: 0.75; }
+  75%,
+  100% { transform: scale(2);   opacity: 0; }
+}
+
+/* Fade-in-up for staggered reveal of cards */
+@keyframes fade-in-up {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Grid scan-line background for control-room feel */
+@keyframes scan-drift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 -120px; }
+}
+
+/* Tailwind animate-in helper for tooltip */
+.animate-in {
+  animation-fill-mode: both;
+}
+.fade-in {
+  animation-name: fadeInOnly;
+}
+.duration-100 { animation-duration: 100ms; }
+@keyframes fadeInOnly {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
